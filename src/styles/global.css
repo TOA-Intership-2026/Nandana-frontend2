@@ -7,3 +7,92 @@ body {
 h2, h3 {
   color: #333;
 }
+
+/* Responsive base (mobile-first) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* base for rem calculations */
+}
+
+img, svg, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fluid typography */
+body {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Breakpoints */
+@media (min-width: 640px) {
+  html { font-size: 17px; }
+}
+@media (min-width: 1024px) {
+  html { font-size: 18px; }
+}
+
+/* Header/site branding */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.site-logo {
+  width: clamp(36px, 8vw, 56px);
+  height: auto;
+  display: block;
+}
+
+.site-title {
+  font-size: clamp(1.25rem, 4.5vw, 2.4rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: rgb(112, 98, 67);
+}
+
+.site-sub {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+@media (min-width: 640px) {
+  .site-header { padding: 1.5rem 2rem; }
+}
+
+@media (max-width: 420px) {
+  .site-header { gap: 0.5rem; padding: 0.75rem; }
+  .site-title { font-size: 1.2rem; }
+}
+
+/* Floating pet images (cat/dog) */
+.floating-pet {
+  position: fixed;
+  bottom: 0;
+  pointer-events: none;
+  /* responsive width: min 120px, preferred 18vw, max 350px */
+  width: clamp(120px, 18vw, 350px);
+  z-index: 1;
+}
+.floating-pet.left {
+  left: max(0.5rem, env(safe-area-inset-left));
+}
+.floating-pet.right {
+  right: max(0.5rem, env(safe-area-inset-right));
+}
+
+/* Hide extremely small screens only (keep visible on iPhone XR / 414px) */
+@media (max-width: 320px) {
+  .floating-pet { display: none; }
+}
