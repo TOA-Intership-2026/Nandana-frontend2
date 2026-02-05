@@ -41,7 +41,7 @@ function ImageUploader({ file, setFile, preview, setPreview, setResult }) {
           onClick={handleSubmit}
           style={{
             marginTop: "15px",
-            padding: "50px",
+            padding: "0.6em 1.2em",
             width: "100%",
             cursor: "pointer",
             color: "rgb(0, 255, 0)"

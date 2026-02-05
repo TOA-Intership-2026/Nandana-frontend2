@@ -64,18 +64,9 @@ function Home() {
       >
         <Header />
 
-        <div
-  style={{
-  marginTop: "40px",
-  display: "flex",
-  justifyContent: "center",
-  width: "10%",
-  transform: "translateX(0px)", 
-}}
-
->
-  <InputFileUpload handleFile={handleFileChange}></InputFileUpload>
-</div>
+        <div style={{ marginTop: "24px", display: "flex", justifyContent: "center", width: "100%", maxWidth: "420px" }}>
+          <InputFileUpload handleFile={handleFileChange} />
+        </div>
 
         {preview && (
           <div
@@ -115,29 +106,9 @@ function Home() {
           </div>
         )}
 
-        <img
-          src={catImg}
-          alt="Cat"
-          style={{
-            position: "fixed",
-            bottom: 0,
-            left: 20,
-            width: 350,
-            pointerEvents: "none",
-          }}
-        />
+        <img src={catImg} alt="Cat" className="floating-pet left" />
 
-        <img
-          src={dogImg}
-          alt="Dog"
-          style={{
-            position: "fixed",
-            bottom: 0,
-            right: 20,
-            width: 350,
-            pointerEvents: "none",
-          }}
-        />
+        <img src={dogImg} alt="Dog" className="floating-pet right" />
       </div>
     </>
   );
